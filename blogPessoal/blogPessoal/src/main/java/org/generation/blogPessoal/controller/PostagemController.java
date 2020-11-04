@@ -35,3 +35,4 @@ public class PostagemController {
 			return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 		}
 }
+     

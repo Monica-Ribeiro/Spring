@@ -62,7 +62,7 @@ public class Controller implements WebMvcConfigurer {
 	
 	@DeleteMapping("/manutencoes/{id}")
 	public void delete (@PathVariable Long id) {
-		 repository.deleteById(id);
+		 repository.deleteById(id);   
 	}
 
 
