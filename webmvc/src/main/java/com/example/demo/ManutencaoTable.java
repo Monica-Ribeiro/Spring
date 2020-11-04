@@ -22,7 +22,14 @@ public class ManutencaoTable {
 	@Column
 	@NotNull
 	private String nome;
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	@Column
+	private String categoria;
 	@JsonFormat(pattern="yyyy-mm-dd")
 	private Date data;
 	@Column
