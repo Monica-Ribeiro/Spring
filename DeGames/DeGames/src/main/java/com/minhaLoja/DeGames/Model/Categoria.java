@@ -22,7 +22,7 @@ public class Categoria {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
+		private long id;
 
 		@NotNull
 		@Column
@@ -37,7 +37,7 @@ public class Categoria {
 		@JsonIgnoreProperties("categoria")
 		private List<Jogos> jogos;
 
-		public Long getId() {
+		public long getId() {
 			return id;
 		}
 

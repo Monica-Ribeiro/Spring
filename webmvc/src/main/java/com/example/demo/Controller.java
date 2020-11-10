@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @RestController
+@RequestMapping("/teste")
+
 public class Controller implements WebMvcConfigurer {
 
 	public void addViewControllers(ViewControllerRegistry index) 
@@ -36,13 +39,18 @@ public class Controller implements WebMvcConfigurer {
 		repository.save(objetoManutencao);
 		return objetoManutencao;
 	}
-		
-	@GetMapping("/manutencoes/{id}")
+	
+//	@GetMapping("/manutencoes/id/{id}")
+//	public ResponseEntity<ManutencaoTable> getById(@PathVariable long id){
+//		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+//				.orElse(ResponseEntity.notFound().build());
+//	}
+
+	//DESTE JEITO NÃO RETORNAR ERRO
+	@GetMapping("/manutencoes/id/{id}")
 	public Optional<ManutencaoTable> buscarUm(@PathVariable Long id) {
 		return repository.findById(id);
 	}
-
-
 		
 	@PutMapping("/manutencoes/{id}")
 		public ManutencaoTable atualizar(@PathVariable Long id, @RequestBody ManutencaoTable objetinho) 
