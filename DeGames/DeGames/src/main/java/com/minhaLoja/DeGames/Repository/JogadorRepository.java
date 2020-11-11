@@ -1,5 +1,9 @@
 package com.minhaLoja.DeGames.Repository;
 
-public interface JogadorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.minhaLoja.DeGames.Model.Jogador;
+
+public interface JogadorRepository extends JpaRepository<Jogador, Long>{
 
 }

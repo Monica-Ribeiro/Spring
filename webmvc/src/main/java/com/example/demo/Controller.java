@@ -3,6 +3,8 @@ package com.example.demo;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,6 +74,19 @@ public class Controller implements WebMvcConfigurer {
 	public void delete (@PathVariable Long id) {
 		 repository.deleteById(id);   
 	}
+	
+	@Autowired
+	private Services Services;
+	
+	@GetMapping("/teste")
+    public ResponseEntity<List<ManutencaoTable>> listAllItens() {
+        List<ManutencaoTable> itens= Services.findAllItems();
+        if(itens.isEmpty()){
+            return new ResponseEntity<List<ManutencaoTable>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<ManutencaoTable>>(itens, HttpStatus.ACCEPTED);
+    }
+
 
 
 }
